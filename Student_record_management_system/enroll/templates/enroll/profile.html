@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>User Profile</title>
+ <link rel="shortcut icon" href="{% static 'enroll/images/person.svg' %}" type="image/x-icon">
+ <link rel="stylesheet" href="{% static 'enroll/css/bootstrap.css' %}">
+</head>
+<body>
+
+
+<div class="container mt-5">
+ <h2 align="center">Student Dashboard</h2>
+ <h3>Welcome {{request.user.first_name}}</h3>
+ {% if messages %}
+  {% for message in messages %}
+   <small {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</small>
+  {% endfor %}
+ {% endif %}
+ <a class="btn btn-warning" href="{% url 'logout' %}">Logout</a>
+
+
+<div class="container mt-5">
+
+{% for student in students %}
+    <strong>Name</strong> : {{student.first_name}} {{request.user.middlename}} {{request.user.last_name}} <br> <br>
+    <strong>Dob</strong>  : {{student.dob}}  <br> <br>
+    <strong>Gender</strong> : {{student.gender}}  <br> <br>
+    <strong>Mobile</strong> : {{student.mob}}  <br> <br>
+    <strong>Email</strong> : {{student.Email_address}}  <br> <br>
+    <strong>City</strong> : {{student.city}}  <br> <br>
+    <strong>PIN</strong> : {{student.pin}}  <br> <br>
+    <strong>Username</strong> : {{student.username}}
+{% endfor %}
+</div>
+
+<script src="https://kit.fontawesome.com/d2adfe0e73.js" crossorigin="anonymous"></script>
+
+ <script src="{% static 'enroll/js/jquery.js' %}"></script>
+ <script src="{% static 'enroll/js/popper.js' %}"></script>
+ <script src="{% static 'enroll/js/bootstrap.js' %}"></script>
+
+</body>
+</html>

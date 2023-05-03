@@ -1,0 +1,40 @@
+{% extends "enroll/base.html" %}
+{% block content %}
+
+   <div class="container mt=10">
+     <h3>Search Student Record</h3> <br>
+     <form action="/search" method='post'>
+     {% csrf_token %}
+     {{form}}
+     <input type="submit" value="Search">
+     </form>
+     {% if students %}
+       <table class="table">
+         <thead>
+           <th>Name</th>
+           <th>Dob</th>
+           <th>Gender</th>
+           <th>Mobile</th>
+           <th>Email</th>
+           <th>City</th>
+           <th>PIN</th>
+           <th>username</th>
+        </thead>
+        {% endif %}
+        {% for student in students %}
+        <tr>
+         <td>{{student.first_name}} {{student.middlename}} {{student.last_name}}</td>
+         <td>{{student.dob}}</td>
+         <td>{{student.gender}}</td>
+         <td>{{student.mob}}</td>
+         <td>{{student.Email_address}}</td>
+         <td>{{student.city}}</td>
+         <td>{{student.pin}}</td>
+         <td>{{student.username}}</td>
+        </tr>
+        {% endfor %}
+       </table>
+    </div>
+
+{% endblock content %}
+

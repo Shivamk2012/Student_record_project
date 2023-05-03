@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>User Login</title>
+ <link rel="stylesheet" href="{% static 'enroll/css/bootstrap.css' %}">
+ {% comment %} <link rel="stylesheet" href="{%static 'enroll/css/login.css' %}"> {% endcomment %}
+ <link rel="stylesheet" href="{%static 'enroll/css/style.css' %}">
+
+</head>
+<body>
+<div class="contain">
+    <div class=" text">
+        <h2>
+            Login
+        </h2>
+         <form action="" method="post" novalidate>
+        {% csrf_token %}
+        <label for="user type">user type:</label>
+
+        <select name="User type" id="user type">
+            <option value="admin">admin</option>
+            <option value="student">student</option>
+        </select>
+
+        <p>
+        {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+            <p class="er">{{error}}</p>
+        {% endfor %}
+        {% endif %}
+        {% for fm in form %}
+        {{fm.label_tag}} {{fm}} {{fm.errors|striptags}} <br><br>
+        {% endfor %}
+        </p>
+        <input  type="submit" class="btn btn-success" value="Login">
+        </form>
+    </div>
+</div>
+
+ <script src="{% static 'testapp/js/jquery.js' %}"></script>
+ <script src="{% static 'testapp/js/popper.js' %}"></script>
+ <script src="{% static 'testapp/js/bootstrap.js' %}"></script>
+
+</body>
+</html>

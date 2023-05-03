@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>delete</title>
+     <link rel="stylesheet" href="{% static 'enroll/css/bootstrap.css' %}">
+</head>
+<style>
+
+</style>
+
+<body>
+    <div class="h-100 d-flex align-items-center justify-content-center alert alert-danger" role="alert">
+        <form action="{% url 'confirm_delete' pi %}" method='post'>
+        {% csrf_token %}
+        <p>Are you sure you want to delete this student record?</p>
+        <input class="btn btn-danger" type="submit" value="YES">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="btn btn-success"  href="{% url 'view_student' %}">Cancel</a>
+        </form>
+    </div>
+</body>
+ <script src="{% static 'enroll/js/jquery.js' %}"></script>
+ <script src="{% static 'enroll/js/popper.js' %}"></script>
+ <script src="{% static 'enroll/js/bootstrap.js' %}"></script>
+</html>

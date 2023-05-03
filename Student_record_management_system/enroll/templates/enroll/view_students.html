@@ -1,0 +1,35 @@
+{% extends "enroll/base.html" %}
+
+{% block content %}
+
+<div class="container mt-10">
+        <h2 align="center">Student Lists</h2>
+        <table class="table">
+            <thead>
+                <th >SL no.</th>
+                <th>Name</th>
+                <th>Registration Date</th>
+                <th>Registration Time</th>
+                <th>EDIT</th>
+                <th>DELETE</th>
+            </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{student.first_name}} {{student.middlename}} {{student.last_name}}</td>
+                <td>{{student.date_joined|date:"d/m/Y"}}</td>
+                <td>{{student.date_joined|date:"h:i:s a"}}</td>
+                <td><a href="{% url 'updatedata' student.id %}" class="btn btn-warning btn-sm">Edit</a></td>
+                <td><form action="{% url 'deletedata' student.id %}" method="post" class="d-inline"> {% csrf_token %}
+                    <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+                        </form></td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+        </table>
+
+</div>
+
+{% endblock content %}

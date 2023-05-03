@@ -1,0 +1,3 @@
+
+
+select column_list from table1 INNER JOIN table2 on condition1 INNER JOIN on table3 on condition2

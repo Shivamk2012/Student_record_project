@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>student registration project</title>
+ <link rel="stylesheet" href="{% static 'enroll/css/bootstrap.css' %}">
+</head>
+<body>
+ <div class="container mt-5">
+  {% comment %} <h2 class="text-center alert alert-danger">student registration project</h2> {% endcomment %}
+
+  <nav class="navbar navbar-expand-sm">
+        <ul class="navbar-nav">
+          <li class="btn btn-light  nav-item"><a href="/view-student" class="nav-link">View all</a></li>
+          <li class="btn btn-light nav-item"><a href="/signup" class="nav-link">Add new</a></li>
+          <li class="btn btn-light nav-item"><a href="/search-student" class="nav-link">Search</a></li>
+          <li class="btn btn-light nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
+        </ul>
+  </nav>
+
+        <div id="nav">
+
+      </div>
+
+
+  {% block content %} {% endblock content %}
+ </div>
+ <script src="{% static 'enroll/js/jquery.js' %}"></script>
+ <script src="{% static 'enroll/js/popper.js' %}"></script>
+ <script src="{% static 'enroll/js/bootstrap.js' %}"></script>
+</body>
+</html>
+
+    {% comment %} path('admin/', admin.site.urls),
+    path('signup/', views.sign_up, name='signup'),
+    path('login/', views.user_login, name='login'),
+    path('profile/', views.user_profile, name='profile'),
+    path('logout/', views.user_logout, name='logout'),
+    path('view-student/',views.viewstudents,name='view_student'),
+    path('delete/<id>/', views.delete_data, name="deletedata"),
+    path('<int:id>/', views.update_data, name="updatedata"),
+    path('search-student',views.searchStudent),
+    path('search',views.search), {% endcomment %}

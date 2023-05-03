@@ -1,0 +1,66 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+body{
+    background-color:#c2c4c5;
+    background-size: 100% 740px;
+
+}
+
+.contain{
+    width: 300px;
+    height:400px;
+    background-color: black;
+    margin-left:36% ;
+    margin-top: 7%;
+    text-align: center;
+    color:white;
+}
+
+.contain .text{
+    position: relative;
+    top: 7%;
+    background-color: black;
+}
+.inp1{
+    border: none;
+    background-color: black;
+    border-bottom: 2px solid white;
+    width:250px;
+    font-size: 20px;
+    margin-top: 40px;
+    outline: none;
+    color: white;
+}
+.text button{
+    width: 250px;
+    height: 44px;
+    background-color: aqua;
+    color:black;
+    border: none;
+    font-size: 22px;
+    border-radius: 25px;
+    margin-top: 30px;
+}
+
+button:hover{
+    border: 3px solid aqua;
+    color:white;
+    font-size: 20px;
+    background-color: black;
+    cursor: pointer;
+}
+
+p{
+    margin-top: 30px;
+    font-size: 22px;
+}
+p span{
+    color:aqua;
+    cursor: pointer;
+}
+.text select{
+    margin-top: 20px;
+}
+
